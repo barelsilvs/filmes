@@ -21,13 +21,13 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Filmes</a>
+                        <a class="nav-link active" href="{% url 'listar' %}">Filmes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Cadastrar</a>
+                        <a class="nav-link active" href="{% url 'cadastrar' %}">Cadastrar</a>
                     </li>
 
                 </ul>
@@ -53,9 +53,9 @@
     <div class="container">
         <footer class="py-3 my-4">
             <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Filmes</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Sugerir</a></li>
+                <li class="nav-item"><a href="{% url 'home' %}" class="nav-link px-2 text-body-secondary">Home</a></li>
+                <li class="nav-item"><a href="{% url 'listar' %}" class="nav-link px-2 text-body-secondary">Filmes</a></li>
+                <li class="nav-item"><a href="{% url 'cadastrar' %}" class="nav-link px-2 text-body-secondary">Sugerir</a></li>
             </ul>
             <p class="text-center text-body-secondary">&copy; 2023 Company, Inc</p>
         </footer>

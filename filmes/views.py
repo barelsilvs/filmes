@@ -47,3 +47,9 @@ def atualizar(request, id):
 def detalhar(request, id):
     filme = Filme.objects.get(id=id)
     return render(request, 'detalhar.html', {'filme':filme})
+
+
+def deletar(request, id):
+    filme = Filme.objects.get(id=id)
+    filme.delete()
+    return redirect('listar')
