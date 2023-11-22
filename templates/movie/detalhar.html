@@ -1,0 +1,11 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<h1>Titulo: {{ movie.titulo }}</h1>
+<h2>Conteudo: {{movie.conteudo}}</h2>
+<h2>Data publicação: {{movie.data_pub}}</h2>
+<h2>Filme: <a href="{% url 'detalhar-filme' movie.filme.id %}">{{movie.filme}}</a></h2>
+<a class="btn btn-primary" href="{% url 'atualizar-movie' movie.id %}">Atualizar Movie</a>
+<a class="btn btn-danger" href="{% url 'deletar-movie' movie.id %}">Apagar Movie</a>
+
+{% endblock %}

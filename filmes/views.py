@@ -20,20 +20,16 @@ class HomeTemplateView(TemplateView):
         return context
 
 
-# def home(request):
-#     noticias = Noticia.objects.all()
-#     return render(request, 'home.html', {"noticias": noticias})
+
 
 class FilmeListView(ListView):
     model=Filme
     template_name='filme/listar.html'
     context_object_name='filmes'
-    ordering='-nome'
+  
 
 
-# def listar(request):
-#     autores = Autor.objects.all().order_by('-nome')
-#     return render(request, 'listar.html', {'autores':autores})
+
 
 class FilmeDetailView(DetailView):
     model=Filme
@@ -42,9 +38,6 @@ class FilmeDetailView(DetailView):
     pk_url_kwarg='id'
 
 
-# def detalhar(request, id):
-#     autor = Autor.objects.get(id=id)
-#     return render(request, 'detalhar.html', {'autor':autor})
 
 
 class FilmeCreateView(CreateView):
@@ -54,21 +47,12 @@ class FilmeCreateView(CreateView):
     
 
     def get_success_url(self):
-        messages.add_message(self.request, messages.SUCCESS, "Filme  cadastrado com sucesso!")
+        messages.add_message(self.request, messages.SUCCESS, "Filme cadastrado com sucesso!")
         return reverse('listar-filme')
 
 
 
-# def cadastrar(request):
-#     if request.method == "POST":
-#         form = AutorForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             form.save()
-#             messages.add_message(request, messages.SUCCESS, "Autor cadastrado com sucesso!")
-#             return redirect("listar")
-#     else:
-#          form = AutorForm()
-#          return render(request, 'cadastrar.html', {'form': form})
+
 
 
 class FilmeUpdateView(UpdateView):
@@ -79,21 +63,10 @@ class FilmeUpdateView(UpdateView):
 
     def get_success_url(self):
         messages.add_message(self.request, messages.SUCCESS, "Filme atualizado com sucesso!")
-        return reverse('listar-fime')
+        return reverse('listar-filme')
 
 
-# def atualizar(request, id):
-#     autor = Autor.objects.get(id=id)
-#     form = AutorForm(instance=autor)
-#     if request.method == "POST":
-#         form = AutorForm(request.POST, request.FILES, instance=autor)
-#         if form.is_valid():
-#             form.save()
-#             return redirect("atualizar", id=id)
-#         else:
-#             return render(request, 'atualizar.html', {'form': form})
-#     else:
-#          return render(request, 'atualizar.html', {'form': form})
+
 
 class FilmeDeleteView(DeleteView):
     model=Filme
@@ -105,23 +78,20 @@ class FilmeDeleteView(DeleteView):
         return reverse('listar-filme')
 
 
-# def deletar(request, id):
-#     autor = Autor.objects.get(id=id)
-#     autor.delete()
-#     return redirect('listar')
+
 
 
 class MovieListView(ListView):
     model=Movie
     template_name='movie/listar.html'
     context_object_name='movies'
-    ordering='-titulo'
+   
 
 
 class MovieDetailView(DetailView):
     model=Movie
     template_name='movie/detalhar.html'
-    context_object_name='movie'
+    context_object_name='movies'
 
 
 class MovieCreateView(CreateView):
@@ -131,8 +101,8 @@ class MovieCreateView(CreateView):
     
 
     def get_success_url(self):
-        messages.add_message(self.request, messages.SUCCESS, "Noticia cadastrada com sucesso!")
-        return reverse('listar-noticia')
+        messages.add_message(self.request, messages.SUCCESS, "Movie cadastrada com sucesso!")
+        return reverse('listar-movie')
     
 
 class MovieUpdateView(UpdateView):
@@ -141,7 +111,7 @@ class MovieUpdateView(UpdateView):
     form_class=MovieForm
 
     def get_success_url(self):
-        messages.add_message(self.request, messages.SUCCESS, "movie atualizada com sucesso!")
+        messages.add_message(self.request, messages.SUCCESS, "Movie atualizada com sucesso!")
         return reverse('listar-movie')
     
 
